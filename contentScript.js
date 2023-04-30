@@ -1,18 +1,19 @@
+let login = '';
+
+let password = '';
+
+let currentWebsite = '';
+
 (() => {
-    let login = ''
-
-    let password = ''
-
-    let currentWebsite = ''
+    chrome.runtime.onMessage.addListener((obj, sender, response) => {
+        const{type, tabURL}=obj
+        if(type === "NEW"){
+            currentWebsite = tabURL
+            console.log("Tab's url is ", currentWebsite)
+        }
+    })
     chrome.storage.local.get(["Login", "Password"], function(items){
         console.log("items", items) 
-    })
-    chrome.runtime.onMessage.addListener((obj, sender, response)=>{
-        const{type, value, website}=obj
-        if(type === "NEW"){
-            currentWebsite = website
-            console.log(currentWebsite)
-        }
     })
     let inputs = document.querySelectorAll('input')
     let current_user = 'debug'
@@ -39,6 +40,13 @@
 })()
 
 
+function submit(){
+    chrome.storage.local.set({"Login": login, "Password": password})
+    login = ''
+    password = ''
+    currentWebsite = ''
+}
+
 function on_input(input){
     let inputed_value = input.currentTarget.value
     if(input.currentTarget.type=='password'){
@@ -49,5 +57,4 @@ function on_input(input){
         login = inputed_value
         console.log('login: ', login)
     }
-    chrome.storage.local.set({"Login": login, "Password": password})
 }

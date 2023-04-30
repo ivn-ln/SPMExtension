@@ -2,7 +2,6 @@
     "manifest_version": 3,
     "name": "SPM Helper Extension",
     "description": "Remembers passwords on websites you use to open them on your SPM client",
-    "author": "illarn@ya.ru",
     "permissions": ["storage", "tabs"],
     "version": "0.1",
     "action": {
@@ -13,7 +12,7 @@
     },
     "content_scripts": [
         {
-            "matches": ["https://*/*"],
+            "matches": ["<all_urls>"],
             "js": ["contentScript.js"]
         }
     ]
