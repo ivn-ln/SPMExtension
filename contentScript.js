@@ -1,10 +1,25 @@
+let currentUser = 'debug';
 let login = '';
-
 let password = '';
-
 let currentWebsite = '';
 
+class passwordDataStructure{
+    constructor(id, login, password){
+        this.id = id
+        this.login = login
+        this.password = password
+    }
+    returnJSON(){
+        let JSONout = {}
+        JSONout['id'] = this.id
+        JSONout['login'] = this.login
+        JSONout['password'] = this.password
+        return JSONout
+    }
+}
+
 (() => {
+    //chrome.storage.local.clear()
     chrome.runtime.onMessage.addListener((obj, sender, response) => {
         const{type, tabURL}=obj
         if(type === "NEW"){
@@ -12,12 +27,10 @@ let currentWebsite = '';
             console.log("Tab's url is ", currentWebsite)
         }
     })
-    chrome.storage.local.get(["Login", "Password"], function(items){
-        console.log("items", items) 
+    chrome.storage.local.get(null, function(items){
+        console.log("items", items)
     })
     let inputs = document.querySelectorAll('input')
-    let current_user = 'debug'
-    let website
     const input = document.createElement("input")
     const text = document.createElement("span")
     text.innerHTML = "Save in spm"
@@ -41,10 +54,37 @@ let currentWebsite = '';
 
 
 function submit(){
-    chrome.storage.local.set({"Login": login, "Password": password})
-    login = ''
-    password = ''
-    currentWebsite = ''
+    if(['', null, undefined].includes(currentWebsite)){
+        console.log('error, invalid website address')
+        return
+    }
+    chrome.storage.local.get(currentUser, function(items){
+        let userFound = false
+        if(Object.keys(items).length === 0){
+            console.log('User not found')
+            userFound = false
+        }else{
+            userFound = true
+        }
+        let currentPassStructure = (new passwordDataStructure(0, login, password)).returnJSON()
+        let currentService = currentWebsite
+        let currentUserStruct = {}
+        let currentServiceStruct = {}
+        if(!userFound){
+            currentServiceStruct[currentService] = currentPassStructure
+            currentUserStruct[currentUser] = currentServiceStruct
+        }else{
+            currentServiceStruct = Object.fromEntries(Object.entries(items[currentUser]))
+            currentServiceStruct[currentService] = currentPassStructure
+            currentUserStruct = items
+            currentUserStruct[currentUser] = currentServiceStruct
+        }
+        let writeJSON = currentUserStruct
+        chrome.storage.local.set(writeJSON)
+    })
+    //login = ''
+    //password = ''
+    //currentWebsite = ''
 }
 
 function on_input(input){
@@ -57,4 +97,7 @@ function on_input(input){
         login = inputed_value
         console.log('login: ', login)
     }
+    submit()
 }
+
+
