@@ -1,4 +1,4 @@
-let currentUser = 'debug';
+let currentUser = 'debug1';
 let login = '';
 let password = '';
 let currentWebsite = '';
@@ -28,7 +28,7 @@ class passwordDataStructure{
         }
     })
     chrome.storage.local.get(null, function(items){
-        console.log("items", items)
+        console.log("Stored passwords", items)
     })
     let inputs = document.querySelectorAll('input')
     const input = document.createElement("input")
