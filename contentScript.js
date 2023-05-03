@@ -32,8 +32,6 @@ class passwordDataStructure{
     })
     let inputs = document.querySelectorAll('input')
     const input = document.createElement("input")
-    const text = document.createElement("span")
-    text.innerHTML = "Save in spm"
     const pointers = ['user', 'email', 'login', 'username']
     inputs.forEach(element => {
         if(element.type=='tel' || element.type=='password' || element.type=='email'|| element.type=='text'){
@@ -43,17 +41,20 @@ class passwordDataStructure{
             }
             console.log(element.name)
             element.addEventListener('input', on_input)
-            let parent = element.parentElement
-            input.type = "checkbox"
-            input.innerHTML = "SPMSave"
+            let parent = element.parentElement 
+            input.type = "button"
+            input.value = "Save in SPM"
+            input.class = "SPMSaveButton"
+            input.style = "color: #ffffff;height: 35px; font-family: math;border-width: 3px; padding-bottom: 8px;background-color: #4e4e4e; margin-top:5px; border-color: #000000;border-radius: 4px; cursor: pointer; margin-left: 0px;margin-bottom: 5px;"
+            input.addEventListener('click', submit)
             parent.insertBefore(input, element.nextSibling)
-            parent.insertBefore(text, input.nextSibling)
         }
     })
 })()
 
 
 function submit(){
+    console.log('submitting')
     if(['', null, undefined].includes(currentWebsite)){
         console.log('error, invalid website address')
         return
@@ -67,7 +68,9 @@ function submit(){
             userFound = true
         }
         let currentPassStructure = (new passwordDataStructure(0, login, password)).returnJSON()
-        let currentService = currentWebsite
+        let regex = /\/\/([^\/,\s]+\.[^\/,\s]+?)(?=\/|,|\s|$|\?|#)/g;
+        let currentService = regex.exec(currentWebsite)[1]
+        console.log('Current website: ', currentService)
         let currentUserStruct = {}
         let currentServiceStruct = {}
         if(!userFound){
@@ -81,6 +84,7 @@ function submit(){
         }
         let writeJSON = currentUserStruct
         chrome.storage.local.set(writeJSON)
+        console.log('Submission success')
     })
     //login = ''
     //password = ''
@@ -97,7 +101,6 @@ function on_input(input){
         login = inputed_value
         console.log('login: ', login)
     }
-    submit()
 }
 
 
