@@ -10,3 +10,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, tab) => {
         }
     });
 });      
+
+chrome.action.onClicked.addListener((tab)=>{
+    console.log('clicked')
+})

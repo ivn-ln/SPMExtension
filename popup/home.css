@@ -19,13 +19,6 @@
   flex-direction: column;
   justify-content: center;
 }
-.home-password {
-  flex: 0 0 auto;
-  width: 100%;
-  height: 100px;
-  display: flex;
-  align-items: flex-start;
-}
 .home-log-in-button {
   src: url(https://fonts.google.com/noto/specimen/Noto+Sans);
   color: var(--dl-color-gray-900);
@@ -36,13 +29,7 @@
   padding-bottom: var(--dl-space-space-halfunit);
   background-color: rgb(78, 78, 78);
 }
-.home-remember-me {
-  flex: 0 0 auto;
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-}
-.home-no-account-link {
+.home-download-link {
   text-decoration: none;
 }
 @media(max-width: 767px) {
@@ -63,27 +50,12 @@
     padding-left: var(--dl-space-space-halfunit);
     padding-right: var(--dl-space-space-halfunit);
   }
-  .home-login-input {
+  .home-username-input {
     color: #ffffff;
     align-self: center;
     text-align: center;
     font-family: Noto Sans;
     margin-bottom: var(--dl-space-space-halfunit);
-    background-color: rgb(78, 78, 78);
-  }
-  .home-password {
-    width: auto;
-    height: auto;
-    align-self: center;
-    margin-bottom: var(--dl-space-space-halfunit);
-    justify-content: center;
-  }
-  .home-password-input {
-    color: #ffffff;
-    align-self: center;
-    text-align: center;
-    font-family: Noto Sans;
-    margin-right: var(--dl-space-space-halfunit);
     background-color: rgb(78, 78, 78);
   }
   .home-log-in-button {
@@ -95,24 +67,14 @@
     margin-bottom: var(--dl-space-space-halfunit);
     background-color: rgb(78, 78, 78);
   }
-  .home-remember-me {
-    width: auto;
-    height: auto;
-    align-self: center;
-    margin-bottom: var(--dl-space-space-halfunit);
-  }
-  .home-remember-me-check {
-    align-self: center;
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-  }
-  .home-remember-me-label {
+  .home-tooltip-activator {
     color: rgb(255, 255, 255);
     align-self: center;
   }
-  .home-no-account-link {
+  .home-download-link {
+    color: #85d8ff;
+  }
+  .home-text {
     color: #85d8ff;
   }
 }
@@ -120,4 +82,63 @@
   .home-name-label {
     text-align: center;
   }
+  .home-auth-content {
+    height: 165px;
+    position: relative;
+  }
+  .home-username-input {
+    box-shadow: 5px 1px 10px 0px #000000;
+  }
+  .home-tooltip-activator {
+    color: rgb(255, 255, 255);
+  }
+  .home-tooltip {
+    left: 98px;
+    color: rgb(255, 255, 255);
+    width: 40%;
+    bottom: -16px;
+    height: auto;
+    margin: auto;
+    padding: 0px;
+    position: absolute;
+    align-self: center;
+    box-shadow: rgb(0, 0, 0) 5px 1px 10px 0px;
+    text-align: center;
+    padding-top: var(--dl-space-space-halfunit);
+    border-color: var(--dl-color-gray-black);
+    border-style: solid;
+    border-width: 1px;
+    padding-left: var(--dl-space-space-halfunit);
+    border-radius: var(--dl-radius-radius-radius4);
+    padding-right: var(--dl-space-space-halfunit);
+    padding-bottom: var(--dl-space-space-halfunit);
+    text-transform: capitalize;
+    background-color: rgb(74, 74, 74);
+    transition-property: opacity;
+    transition-duration: 1s;
+  }
+  .home-download-link {
+    color: rgb(133, 216, 255);
+    text-decoration: none;
+  }
+}
+
+/*Not generated properties below*/
+.home-tooltip-activator .home-tooltip{
+  visibility: hidden;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+}
+
+.home-tooltip-activator:hover .home-tooltip{
+  visibility: visible;
+  opacity: 1; 
+  transition-property: opacity;
+  transition-duration: 0.5s;
+}
+
+.disabled{
+  opacity: 0.5; 
+  cursor:default;
 }

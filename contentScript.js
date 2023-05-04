@@ -1,4 +1,4 @@
-let currentUser = 'debug1';
+let currentUser = '';
 let login = '';
 let password = '';
 let currentWebsite = '';
@@ -18,7 +18,18 @@ class passwordDataStructure{
     }
 }
 
-(() => {
+(async () => {
+    await chrome.storage.local.get('logged', function(items){
+        if(!items['logged']){
+            return
+        }
+        console.log(items['logged'])
+        currentUser = items['logged']
+        main()
+    })
+})()
+
+function main(){
     //chrome.storage.local.clear()
     chrome.runtime.onMessage.addListener((obj, sender, response) => {
         const{type, tabURL}=obj
@@ -50,8 +61,7 @@ class passwordDataStructure{
             parent.insertBefore(input, element.nextSibling)
         }
     })
-})()
-
+}
 
 function submit(){
     console.log('submitting')
@@ -59,7 +69,7 @@ function submit(){
         console.log('error, invalid website address')
         return
     }
-    chrome.storage.local.get(currentUser, function(items){
+    chrome.storage.local.get(currentUser, (items)=>{
         let userFound = false
         if(Object.keys(items).length === 0){
             console.log('User not found')
