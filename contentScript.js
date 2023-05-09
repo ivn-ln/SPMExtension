@@ -19,6 +19,10 @@ class passwordDataStructure{
 }
 
 (async () => {
+    window.webkitRequestFileSystem(window.PERSISTENT, 1024 * 1024, function (filesystem) {      
+        console.log(filesystem);                
+        console.log(filesystem.root);
+    }, function (e) { console.log("Could not request File System"); });
     await chrome.storage.local.get('logged', function(items){
         if(!items['logged']){
             return
