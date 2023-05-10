@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Judicious Another Sheep</title>
-    <meta property="og:title" content="Judicious Another Sheep" />
+    <title>SPMExtension</title>
+    <meta property="og:title" content="SPMExtension" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
@@ -39,50 +39,62 @@
       data-tag="font"
     />
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./homeNotGen.css" />
   </head>
   <body>
+    </style>
     <div>
       <link href="./home.css" rel="stylesheet" />
-
       <div class="home-container">
-        <h1 class="DefaultHeading home-name-label">Simple Password Manager</h1>
-        <img
-          alt="image"
-          src="https://em-content.zobj.net/source/skype/289/locked_1f512.png"
-          class="home-logo-spinning"
-        />
-        <div class="home-auth-content">
-          <input
-            type="email"
-            size="25"
-            maxlength="25"
-            placeholder="Input your username"
-            class="DefaultText input home-username-input"
+        <div class="home-container1">
+          <h1 class="DefaultHeading home-name-label">
+            Simple Password Manager
+          </h1>
+          <img
+            alt="image"
+            src="https://em-content.zobj.net/source/skype/289/locked_1f512.png"
+            class="home-logo-spinning"
           />
-          <button
-            type="button"
-            id="login"
-            class="home-log-in-button button DefaultText"
+          <div class="home-auth-content">
+            <input
+              type="email"
+              size="25"
+              maxlength="25"
+              placeholder="Input your username"
+              class="DefaultText input home-username-input"
+            />
+            <button
+              id="login"
+              type="button"
+              class="home-log-in-button DefaultText button"
+            >
+              Get started
+            </button>
+            <span
+              id="tooltipActivator"
+              class="DefaultText home-tooltip-activator"
+            >
+              ❓
+              
+              <span id="tooltip" class="DefaultText home-tooltip">
+                <br>
+                All passwords associated with your user will be stored together
+              </span>
+            </span>
+            
+          </div>
+          <a
+            href="https://github.com/ivn-ln/SimplePasswordManager"
+            target="_blank"
+            rel="noreferrer noopener"
+            class="home-download-link"
           >
-            Get started
-          </button>
-          <div id="tooltipActivator" class="home-tooltip-activator">❓
-            <span id="tooltip" class="home-tooltip">
-              All passwords associated with your user will be stored together
-            </div>
-          </span>
+            <span class="DefaultText">Download SPM client</span>
+            <br />
+          </a>
         </div>
-        <a
-          href="https://github.com/ivn-ln/SimplePasswordManager"
-          target="_blank"
-          rel="noreferrer noopener"
-          class="home-download-link"
-        >
-          <span class="DefaultText home-text">Download SPM client</span>
-          <br />
-        </a>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="home.js"></script>
   </body>
 </html>

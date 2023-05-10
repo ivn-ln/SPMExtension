@@ -97,6 +97,7 @@ function submit(){
             currentUserStruct[currentUser] = currentServiceStruct
         }
         let writeJSON = currentUserStruct
+        console.log(writeJSON)
         chrome.storage.local.set(writeJSON)
         console.log('Submission success')
     })

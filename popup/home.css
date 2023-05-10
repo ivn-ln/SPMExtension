@@ -7,6 +7,12 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+.home-container1 {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
 .home-logo-spinning {
   width: 100px;
   object-fit: cover;
@@ -32,113 +38,57 @@
 .home-download-link {
   text-decoration: none;
 }
-@media(max-width: 767px) {
+@media(max-width: 479px) {
   .home-container {
-    background-image: radial-gradient(circle at center top, rgb(93, 93, 93) 1.00%,rgb(0, 0, 0) 100.00%);
+    background-image: radial-gradient(circle at center, rgb(164, 164, 164) 0.00%,rgb(0, 0, 0) 62.00%);
+  }
+  .home-container1 {
+    width: 100%;
+    height: 501px;
   }
   .home-name-label {
     color: #ffffff;
-    margin-top: var(--dl-space-space-oneandhalfunits);
-    font-family: Noto Sans;
+    align-self: center;
+    margin-top: var(--dl-space-space-unit);
+    margin-bottom: var(--dl-space-space-unit);
   }
   .home-logo-spinning {
-    margin-top: var(--dl-space-space-halfunit);
+    align-self: center;
+    margin-top: 0px;
+    margin-bottom: var(--dl-space-space-unit);
   }
   .home-auth-content {
-    width: 327px;
-    height: 210px;
-    padding-left: var(--dl-space-space-halfunit);
-    padding-right: var(--dl-space-space-halfunit);
+    width: 100%;
+    height: 172px;
+    align-self: center;
+    margin-top: 0px;
   }
   .home-username-input {
-    color: #ffffff;
+    color: var(--dl-color-gray-white);
     align-self: center;
+    box-shadow: 1px 5px 10px 1px #000000;
     text-align: center;
-    font-family: Noto Sans;
-    margin-bottom: var(--dl-space-space-halfunit);
+    margin-bottom: var(--dl-space-space-unit);
     background-color: rgb(78, 78, 78);
   }
   .home-log-in-button {
-    color: var(--dl-color-gray-900);
     align-self: center;
-    box-shadow: 1px 1px 10px 0px #000000;
-    margin-top: var(--dl-space-space-unit);
-    font-family: Noto Sans;
-    margin-bottom: var(--dl-space-space-halfunit);
-    background-color: rgb(78, 78, 78);
-  }
-  .home-tooltip-activator {
-    color: rgb(255, 255, 255);
-    align-self: center;
-  }
-  .home-download-link {
-    color: #85d8ff;
-  }
-  .home-text {
-    color: #85d8ff;
-  }
-}
-@media(max-width: 479px) {
-  .home-name-label {
     text-align: center;
-  }
-  .home-auth-content {
-    height: 165px;
-    position: relative;
-  }
-  .home-username-input {
-    box-shadow: 5px 1px 10px 0px #000000;
+    margin-bottom: var(--dl-space-space-unit);
   }
   .home-tooltip-activator {
-    color: rgb(255, 255, 255);
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--dl-space-space-unit);
   }
   .home-tooltip {
-    left: 98px;
-    color: rgb(255, 255, 255);
-    width: 40%;
-    bottom: -16px;
-    height: auto;
-    margin: auto;
-    padding: 0px;
-    position: absolute;
     align-self: center;
-    box-shadow: rgb(0, 0, 0) 5px 1px 10px 0px;
     text-align: center;
-    padding-top: var(--dl-space-space-halfunit);
-    border-color: var(--dl-color-gray-black);
-    border-style: solid;
-    border-width: 1px;
-    padding-left: var(--dl-space-space-halfunit);
-    border-radius: var(--dl-radius-radius-radius4);
-    padding-right: var(--dl-space-space-halfunit);
-    padding-bottom: var(--dl-space-space-halfunit);
-    text-transform: capitalize;
-    background-color: rgb(74, 74, 74);
-    transition-property: opacity;
-    transition-duration: 1s;
+    margin-bottom: var(--dl-space-space-unit);
   }
   .home-download-link {
-    color: rgb(133, 216, 255);
-    text-decoration: none;
+    color: #7ee8ff;
+    align-self: center;
   }
-}
-
-/*Not generated properties below*/
-.home-tooltip-activator .home-tooltip{
-  visibility: hidden;
-  opacity: 0;
-  transition-property: opacity;
-  transition-duration: 0.5s;
-}
-
-.home-tooltip-activator:hover .home-tooltip{
-  visibility: visible;
-  opacity: 1; 
-  transition-property: opacity;
-  transition-duration: 0.5s;
-}
-
-.disabled{
-  opacity: 0.5; 
-  cursor:default;
 }

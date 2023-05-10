@@ -1,0 +1,35 @@
+/*Not generated properties below*/
+.home-tooltip-activator .home-tooltip{
+  transition: all .5s ease-out;
+  visibility: hidden;
+  opacity: 0;
+  position:absolute;
+  width: 0%;
+  color: aliceblue;
+  background-color: rgb(78, 78, 78);
+  border: 1px solid black;
+  box-shadow: 1px 5px 10px 1px #000000;
+  src: url(https://fonts.google.com/noto/specimen/Noto+Sans);
+  border-radius: 15px;
+  padding: 0px 8px 8px 8px;
+  font-size: 0px;
+  
+}
+
+.home-tooltip-activator:hover .home-tooltip{
+  transition: all .5s ease-out;
+  visibility: visible;
+  opacity: 1; 
+  width: 30%;
+  font-size: small;
+  
+}
+
+.disabled{
+  opacity: 0.5; 
+  cursor: default;
+}
+
+body{
+  width: 450px;
+}
