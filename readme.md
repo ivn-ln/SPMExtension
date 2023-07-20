@@ -1,7 +1,12 @@
-# Chrome extension for Simple Password Manager
-## It makes it fast and easy to save passwords directly from browser
+# Chrome extension for Simple Password Manager (SPM)
+It makes it fast and easy to save passwords into SPM from your browser
 
-## Provides following functionality:
-- Saving passwords by pressing a button on a login or registration page
-- Managing password  inside extension's user
-- Exporting passwords to .spm format, to import them into SPM
+## Screenshots
+- Extension popup
+![Screenshot 1](Screenshots/1.png)
+- Save password button
+![Screenshot 2](Screenshots/2.png)
+- Extension popup
+![Screenshot 3](Screenshots/3.png)
+- Importing passwords from extension to SPM
+![Screenshot 4](Screenshots/4.png)
